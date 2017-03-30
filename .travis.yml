@@ -6,11 +6,20 @@ language: node_js
 node_js:
   - 4
 
-env:
-  - BUILD=0 BROWSER=Chrome
-  - BUILD=1 BROWSER=Chrome
-  - BUILD=0 BROWSER=Firefox
-  - BUILD=1 BROWSER=Firefox
+matrix:
+  include:
+    - os: linux
+      env: BUILD=0 BROWSER=Chrome
+    - os: linux
+      env: BUILD=1 BROWSER=Chrome
+    - os: linux
+      env: BUILD=0 BROWSER=Firefox
+    - os: linux
+      env: BUILD=1 BROWSER=Firefox
+    - os: osx
+      env: BUILD=0 BROWSER=Safari
+    - os: osx
+      env: BUILD=1 BROWSER=Safari
 
 addons:
   firefox: "latest"
